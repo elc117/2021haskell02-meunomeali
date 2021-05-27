@@ -40,10 +40,27 @@ quarentena :: [(String,Float)] -> [(String,Float)]
 quarentena lisTuplas = filter (\(_,temp) -> temp > 38.8) lisTuplas
 
 
--- 6)
---idadesEm :: [Int] -> Int -> [Int]
---idadesEm lNasc ano = map (\ano -> ano - lNasc) lNasc
+-- 6) Calcula todas idades de uma lista de anos de nascimento, com base em um ano escolhido
+
+idadesEm :: [Int] -> Int -> [Int]
+idadesEm lNasc ano = map (\nasc -> ano - nasc) lNasc
 
 
+--7) adiciona "Super " na str, se seu primeiro char for 'A'
+
+superPrefixo :: String -> String
+superPrefixo str = if (str !! 0) == 'A' then "Super " ++ str else str
+
+changeNames :: [String] -> [String]
+changeNames lNomes = map superPrefixo lNomes
 
 
+--8) Mantem, de uma lista, apenas palavras pequenas
+-- Utilizei a 'isLongWord' da pratica 1 como referencia:
+
+--isLongWord :: String -> Bool
+--isLongWord s = length s > 10
+
+-- mantem apenas as palavras com menos de 5 char
+onlyShorts :: [String] -> [String]
+onlyShorts lstr = filter (\str -> length str < 5) lstr
